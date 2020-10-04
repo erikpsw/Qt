@@ -47,7 +47,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button1.Font = new System.Drawing.Font("华文中宋", 15F);
-            this.button1.Location = new System.Drawing.Point(366, 16);
+            this.button1.Location = new System.Drawing.Point(357, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 46);
             this.button1.TabIndex = 0;
@@ -153,7 +153,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Game of Life";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rownum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.columnnum)).EndInit();

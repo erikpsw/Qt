@@ -42,6 +42,7 @@ namespace Game_of_Life
                 NewButton.Location = new Point(x, y);
                 NewButton.Size = new Size(30, 30);
                 NewButton.Click += NewButton_Click;
+                NewButton.BackColor =Color.White;
                 this.Controls.Add(NewButton);
                 x += 30;
             }
@@ -66,7 +67,15 @@ namespace Game_of_Life
                                 ok = false;
                         }
                         if (ok)
-                            this.Controls.Remove(ctl);
+                        {
+                            int cx, cy;
+                            cx = (ctl.Location.X - 10) / 30;
+                            cy = (ctl.Location.Y - 30) / 30 - 1;
+                            if (tmp[cx, cy] == 1)
+                                ctl.BackColor = Color.Blue;
+                            else
+                                ctl.BackColor = Color.White;
+                        }
                     }
                 }
             }
@@ -217,27 +226,7 @@ namespace Game_of_Life
                 Console.WriteLine("\n");
             }
 
-            int sum = Column * Row;//清除原图
-            while (sum > 0.1)
-            {
-                sum = sum / 2;
-
-                foreach (Control ctl in this.Controls)
-                {
-                    bool ok = true;
-                    if (ctl is Button)
-                    {
-                        foreach (string name in btnlist)
-                        {
-                            if (name == ctl.Name.ToString())
-                                ok = false;
-                        }
-                        if (ok)
-                            this.Controls.Remove(ctl);
-                    }
-                }
-            }
-      
+            
             Restart();
         }
 
@@ -307,27 +296,6 @@ namespace Game_of_Life
                     pos[i, j] = tmp[i, j];
                 }
                 Console.WriteLine("\n");
-            }
-
-            int sum = Column * Row;//清除原图
-            while (sum > 0.1)
-            {
-                sum = sum / 2;
-
-                foreach (Control ctl in this.Controls)
-                {
-                    bool ok = true;
-                    if (ctl is Button)
-                    {
-                        foreach (string name in btnlist)
-                        {
-                            if (name == ctl.Name.ToString())
-                                ok = false;
-                        }
-                        if (ok)
-                            this.Controls.Remove(ctl);
-                    }
-                }
             }
       
             Restart();
